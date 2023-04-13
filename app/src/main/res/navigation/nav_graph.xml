@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="khamroev001.e_learn.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_firstImgFragment"
+            app:destination="@id/firstImgFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstImgFragment"
+        android:name="khamroev001.e_learn.fragments.FirstImgFragment"
+        android:label="fragment_first_img"
+        tools:layout="@layout/fragment_first_img" >
+        <action
+            android:id="@+id/action_firstImgFragment_to_secondImgFragment"
+            app:destination="@id/secondImgFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondImgFragment"
+        android:name="khamroev001.e_learn.fragments.SecondImgFragment"
+        android:label="fragment_second_img"
+        tools:layout="@layout/fragment_second_img" >
+        <action
+            android:id="@+id/action_secondImgFragment_to_thirdImgFragment"
+            app:destination="@id/thirdImgFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdImgFragment"
+        android:name="khamroev001.e_learn.fragments.ThirdImgFragment"
+        android:label="fragment_third_img"
+        tools:layout="@layout/fragment_third_img" />
+</navigation>

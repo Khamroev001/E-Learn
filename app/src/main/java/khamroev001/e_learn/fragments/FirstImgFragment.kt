@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import khamroev001.e_learn.R
+import khamroev001.e_learn.databinding.FragmentFirstImgBinding
 
 
 class FirstImgFragment : Fragment() {
@@ -14,8 +16,15 @@ class FirstImgFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_img, container, false)
+        var binding:FragmentFirstImgBinding= FragmentFirstImgBinding.inflate(inflater,container,false)
+
+        binding.button.setOnClickListener{
+            findNavController().navigate(R.id.action_firstImgFragment_to_secondImgFragment)
+        }
+
+
+
+        return binding.root
     }
 
 }

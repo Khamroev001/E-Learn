@@ -12,7 +12,13 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_firstImgFragment"
-            app:destination="@id/firstImgFragment" />
+            app:destination="@id/firstImgFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/firstImgFragment"
@@ -36,5 +42,47 @@
         android:id="@+id/thirdImgFragment"
         android:name="khamroev001.e_learn.fragments.ThirdImgFragment"
         android:label="fragment_third_img"
-        tools:layout="@layout/fragment_third_img" />
+        tools:layout="@layout/fragment_third_img" >
+        <action
+            android:id="@+id/action_thirdImgFragment_to_createAccFragment"
+            app:destination="@id/createAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="khamroev001.e_learn.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_createAccFragment"
+            app:destination="@id/createAccFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccFragment"
+        android:name="khamroev001.e_learn.fragments.CreateAccFragment"
+        android:label="fragment_create_acc"
+        tools:layout="@layout/fragment_create_acc" >
+        <action
+            android:id="@+id/action_createAccFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_createAccFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="khamroev001.e_learn.fragments.PinFragment"
+        android:label="fragment_pin"
+        tools:layout="@layout/fragment_pin" />
 </navigation>

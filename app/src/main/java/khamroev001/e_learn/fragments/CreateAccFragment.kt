@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -45,6 +46,16 @@ class CreateAccFragment : Fragment() {
                 gson.fromJson(str, type)
             }
 
+            for (i in usersList) {
+                if (binding.emailUp.text.toString() == i.email) {
+                    Toast.makeText(
+                        requireActivity(),
+                        "this email is not available",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setOnClickListener
+                }
+            }
 
             if (binding.passwordUp.text.toString().length < 6) {
                 Toast.makeText(activity, "password should include more than 6 characters",
@@ -58,8 +69,16 @@ class CreateAccFragment : Fragment() {
                     usersList.add(User(binding.emailUp.text.toString(), binding.passwordUp.text.toString()))
                     var s = gson.toJson(usersList)
                     edit.putString("user", s).apply()
+                    println(binding.emailUp.text.toString())
 
-                    findNavController().navigate(R.id.action_createAccFragment_to_profileFragment)
+
+
+                    bundleOf("email" to binding.emailUp.text.toString())
+
+
+                    findNavController().navigate(R.id.action_createAccFragment_to_profileFragment,
+                        bundleOf("email" to binding.emailUp.text.toString())
+                    )
                 }
             }
         }

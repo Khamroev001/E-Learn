@@ -1,4 +1,4 @@
-package khamroev001.e_learn.fragments
+package khamroev001.e_learn.fragments.ProfileFragments
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.DatePicker
+import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -76,12 +78,18 @@ class ProfileFragment : Fragment() {
              println(i.email)
              println(email)
              if(i.email==email ){
-                 var password=i.password
-                 usersList.remove(i)
-                 usersList.add(User(email,password,binding.fullName.text.toString(),binding.username.text.toString(),binding.birthdate.text.toString(),binding.phonenumber.text.toString(),selectedGender))
-                 var s = gson.toJson(usersList)
-                 edit.putString("user", s).apply()
-                 findNavController().navigate(R.id.action_profileFragment_to_pinFragment)
+                 if(selectedGender!=genders[0] && binding.fullName.text.isNotEmpty() && binding.phonenumber.text.isNotEmpty()&& binding.birthdate.text.isNotEmpty()&& binding.username.text.isNotEmpty()){
+                     var password=i.password
+                     usersList.remove(i)
+                     usersList.add(User(email,password,binding.fullName.text.toString(),binding.username.text.toString(),binding.birthdate.text.toString(),binding.phonenumber.text.toString(),selectedGender))
+                     var s = gson.toJson(usersList)
+                     edit.putString("user", s).apply()
+                     bundleOf("email" to email)
+                     findNavController().navigate(R.id.action_profileFragment_to_pinFragment, bundleOf("email" to email))
+                 }
+                 else{
+                     Toast.makeText(requireActivity(),"Fill all gaps",Toast.LENGTH_LONG).show()
+                 }
              }
          }
 

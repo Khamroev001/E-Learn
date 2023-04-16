@@ -1,4 +1,4 @@
-package khamroev001.e_learn.fragments
+package khamroev001.e_learn.fragments.ProfileFragments
 
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences

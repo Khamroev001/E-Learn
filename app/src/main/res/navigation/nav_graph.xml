@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="khamroev001.e_learn.fragments.SplashFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/firstImgFragment"
-        android:name="khamroev001.e_learn.fragments.FirstImgFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.FirstImgFragment"
         android:label="fragment_first_img"
         tools:layout="@layout/fragment_first_img" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondImgFragment"
-        android:name="khamroev001.e_learn.fragments.SecondImgFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.SecondImgFragment"
         android:label="fragment_second_img"
         tools:layout="@layout/fragment_second_img" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdImgFragment"
-        android:name="khamroev001.e_learn.fragments.ThirdImgFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.ThirdImgFragment"
         android:label="fragment_third_img"
         tools:layout="@layout/fragment_third_img" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="khamroev001.e_learn.fragments.LoginFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/createAccFragment"
-        android:name="khamroev001.e_learn.fragments.CreateAccFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.CreateAccFragment"
         android:label="fragment_create_acc"
         tools:layout="@layout/fragment_create_acc" >
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="khamroev001.e_learn.fragments.ProfileFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -82,7 +82,16 @@
     </fragment>
     <fragment
         android:id="@+id/pinFragment"
-        android:name="khamroev001.e_learn.fragments.PinFragment"
+        android:name="khamroev001.e_learn.fragments.ProfileFragments.PinFragment"
         android:label="fragment_pin"
-        tools:layout="@layout/fragment_pin" />
+        tools:layout="@layout/fragment_pin" >
+        <action
+            android:id="@+id/action_pinFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

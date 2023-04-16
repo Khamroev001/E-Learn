@@ -1,4 +1,4 @@
-package khamroev001.e_learn.fragments
+package khamroev001.e_learn.fragments.ProfileFragments
 
 import android.content.Context
 import android.os.Bundle
@@ -73,7 +73,6 @@ class CreateAccFragment : Fragment() {
 
 
 
-                    bundleOf("email" to binding.emailUp.text.toString())
 
 
                     findNavController().navigate(R.id.action_createAccFragment_to_profileFragment,

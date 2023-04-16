@@ -2,9 +2,12 @@
     <string name="app_name">E-Learn</string>
 
 
-     <string-array name="gender_options">
+    <string-array name="gender_options">
+        <item>Choose your gender</item>
         <item>Male</item>
         <item>Female</item>
         <item>Other</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

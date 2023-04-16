@@ -1,4 +1,4 @@
-package khamroev001.e_learn.fragments
+package khamroev001.e_learn.fragments.ProfileFragments
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -46,7 +47,9 @@ class LoginFragment : Fragment() {
             for (i in usersList) {
                 if (binding.emailUp.text.toString() == i.email) {
                     if (i.password == binding.passwordUp.text.toString()) {
-                      findNavController().navigate(R.id.action_loginFragment_to_pinFragment)
+                      findNavController().navigate(R.id.action_loginFragment_to_pinFragment,
+                          bundleOf("email" to i.email)
+                      )
                     }else {
                         Toast.makeText(activity, "Password or email is incorrect", Toast.LENGTH_LONG).show()
                     }

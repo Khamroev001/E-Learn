@@ -1,4 +1,4 @@
-package khamroev001.e_learn.fragments
+package khamroev001.e_learn.fragments.ProfileFragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

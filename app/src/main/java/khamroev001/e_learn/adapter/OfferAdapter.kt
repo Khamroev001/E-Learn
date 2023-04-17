@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import khamroev001.e_learn.R
 import khamroev001.e_learn.model.Discount_offers
@@ -16,6 +17,7 @@ class OfferAdapter(var context: Context, private val itemList: MutableList<Disco
         var description: TextView = itemView.findViewById(R.id.describtion)
         var discount_off: TextView = itemView.findViewById(R.id.discount_off)
         var discount: TextView = itemView.findViewById(R.id.discount_size)
+        var card:CardView=itemView.findViewById(R.id.main)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -31,8 +33,9 @@ class OfferAdapter(var context: Context, private val itemList: MutableList<Disco
 
 
         holder.description.text=item.describtion
-        holder.discount.text="${item.discount} %"
-        holder.discount_off.text="${item.discount} % off"
+        holder.discount.text="${item.discount}%"
+        holder.discount_off.text="${item.discount}% off"
         holder.title.text=item.title
+        holder.card.setCardBackgroundColor(item.color)
     }
 }

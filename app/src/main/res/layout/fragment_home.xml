@@ -98,4 +98,93 @@
         app:layout_constraintTop_toBottomOf="@+id/search"
         tools:listitem="@layout/item_offers" />
 
+
+    <LinearLayout
+        android:id="@+id/line_mentor"
+        android:layout_width="match_parent"
+       android:layout_marginTop="8dp"
+       android:layout_marginHorizontal="24dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_offer">
+
+        <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Top mentors"
+        android:layout_weight="2"
+        android:fontFamily="@font/bold"
+        android:textSize="20dp"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="see all"
+            android:textAlignment="textEnd"
+            android:layout_weight="2"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/bold"
+            android:textSize="16dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mentors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_mentor"
+        tools:listitem="@layout/item_mentor" />
+
+
+    <LinearLayout
+        android:id="@+id/line_course"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_mentors">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Most popular courses"
+            android:layout_weight="3"
+            android:fontFamily="@font/bold"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="see all"
+            android:textAlignment="textEnd"
+            android:layout_weight="2"
+            android:textColor="@color/blue"
+            android:fontFamily="@font/bold"
+            android:textSize="16dp"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_btn_courses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line_course"
+        tools:listitem="@layout/item_mentor" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

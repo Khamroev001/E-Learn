@@ -10,4 +10,43 @@
     </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_of_the_body">menu of the body</string>
+    <string name="good_morning">Good Morning 👋</string>
+    <string name="andrew_ainsley">Andrew Ainsley</string>
+    <string name="get_a_discount_for_every_course_order_nonly_valid_for_today">Get a discount for every course order!\n Only valid for today!</string>
+    <string name="today_s_special">Today\'s special</string>
+    <string name="off">40% OFF</string>
+    <string name="top_mentors">Top mentors</string>
+    <string name="see_all">See all</string>
+    <string name="name">Name</string>
+    <string name="top_courses">Top courses</string>
+    <string name="notifications">Notifications</string>
+    <string name="bookmarks">My Bookmark</string>
+    <string name="_40">40%</string>
+    <string name="_12_232_students">12 232 students</string>
+    <string name="q">|</string>
+    <string name="_4_8">4.8</string>
+    <string name="_80">80 $</string>
+    <string name="_48">48 $</string>
+    <string name="_3d_design_illustration">3D design illustration</string>
+    <string name="_3d_design">3D design</string>
+    <string name="jonathan_williams">Jonathan Williams</string>
+    <string name="reviews">reviews</string>
+    <string name="_9_279">9 279</string>
+    <string name="s">students</string>
+    <string name="_25">25</string>
+    <string name="courses">courses</string>
+    <string name="message">Message</string>
+    <string name="message_asd">Message</string>
+    <string name="_22_379">22 379</string>
+    <string name="_5">5</string>
+    <string name="hsdj_akjsnkajsnd_akjsn_kjas_ndkjas_ndkajs_dnkasj_nkj">Hsdj akjsnkajsnd akjsn kjas ndkjas ndkajs dnkasj nkj.</string>
+    <string name="mentor">Mentor</string>
+    <string name="about_course">About course</string>
+    <string name="enroll_course">Enroll course</string>
+    <string name="students">Students</string>
+    <string name="_22_379_reviews">(22 379 reviews)</string>
+    <string name="hours">Hours</string>
+    <string name="certificate">Certificate</string>
 </resources>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:scaleType="centerCrop"
+                android:id="@+id/home_course_item_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_launcher_background"
+                tools:ignore="ContentDescription" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/home_course_item_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/_3d_design"
+            android:textColor="@color/primary"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/home_course_item_bookmark"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/home_course_item_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/_3d_design_illustration"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/home_course_item_bookmark"
+            app:layout_constraintStart_toEndOf="@+id/cardView"
+            app:layout_constraintTop_toBottomOf="@+id/home_course_item_category" />
+
+        <TextView
+            android:id="@+id/course_detail_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/_48"
+            android:textStyle="bold"
+            android:textColor="@color/primary"
+            app:layout_constraintStart_toStartOf="@+id/home_course_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/home_course_item_name" />
+
+        <TextView
+            android:id="@+id/course_detail_old_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/_80"
+            android:textColor="@color/text_color2"
+            app:layout_constraintStart_toEndOf="@+id/course_detail_price"
+            app:layout_constraintTop_toTopOf="@+id/course_detail_price" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/star"
+            app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+            app:layout_constraintStart_toStartOf="@+id/course_detail_price"
+            app:layout_constraintTop_toTopOf="@+id/course_detail_rating"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/course_detail_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color2"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/_4_8"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/course_detail_price" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/q"
+            android:textColor="@color/text_color2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+            app:layout_constraintStart_toEndOf="@+id/course_detail_rating"
+            app:layout_constraintTop_toTopOf="@+id/course_detail_rating" />
+
+        <TextView
+            android:textColor="@color/text_color2"
+            android:id="@+id/course_detail_review_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/_12_232_students"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/course_detail_rating" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/home_course_item_bookmark"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
+            android:clickable="true"
+            android:src="@drawable/bookmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

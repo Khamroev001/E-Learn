@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class API private constructor(context: Context) {
-    private val shared = context.getSharedPreferences("data", 0)
+    private val shared = context.getSharedPreferences("data",  Context.MODE_PRIVATE)
     private val edit = shared.edit()
     private val gson = Gson()
 
@@ -22,19 +22,24 @@ class API private constructor(context: Context) {
         fun newInstance(context: Context): API {
             if (instance == null) {
                 instance = API(context)
+                println("API created")
             }
+            instance!!.hasData()
             return instance!!
         }
     }
 
     fun getMentors(): ArrayList<Mentor> {
+        println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         val data: String = shared.getString(mentorsString, "")!!
         val typeToken = object : TypeToken<ArrayList<Mentor>>() {}.type
         if (data == "") return ArrayList()
-        return gson.fromJson(data, typeToken)
+        println(data)
+        return gson.fromJson<ArrayList<Mentor>?>(data, typeToken)
     }
 
     fun getUsers(): ArrayList<User> {
+
         val data: String = shared.getString(usersString, "")!!
         val typeToken = object : TypeToken<ArrayList<User>>() {}.type
         if (data == "") return ArrayList()
@@ -163,8 +168,6 @@ class API private constructor(context: Context) {
 
 
     fun hasData() {
-        val hasData = shared.getString("hasData", "")
-        if (hasData == "yes") return
 
         val user1 = User(
             "Ali1202",
@@ -467,7 +470,6 @@ class API private constructor(context: Context) {
         edit.putString(mentorsString, gson.toJson(mentors)).commit()
         edit.putString(coursesString, gson.toJson(courses)).commit()
 
-        edit.putString("hasData", "yes").apply()
     }
 
 }

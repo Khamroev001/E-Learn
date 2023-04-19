@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainFragments.CourseDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/course_detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/mentor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/course_detail_back_arrow"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
+                android:src="@drawable/bac_arrow_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mentor_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/jonathan_williams"
+                android:textSize="32sp"
+                app:layout_constraintEnd_toStartOf="@+id/home_course_item_bookmark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/course_detail_image" />
+
+            <TextView
+                android:id="@+id/course_detail_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/jonathan_williams"
+                android:textColor="@color/primary"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+                app:layout_constraintStart_toStartOf="@+id/mentor_name"
+                app:layout_constraintTop_toTopOf="@+id/course_detail_rating" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_course_item_bookmark"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:src="@drawable/bookmark"
+                app:layout_constraintBottom_toBottomOf="@+id/mentor_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/mentor_name" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/star"
+                app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+                app:layout_constraintStart_toEndOf="@+id/course_detail_category"
+                app:layout_constraintTop_toTopOf="@+id/course_detail_rating"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/course_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_48"
+                android:textColor="@color/primary"
+                android:textStyle="bold"
+                android:textSize="32sp"
+                app:layout_constraintStart_toStartOf="@+id/mentor_name"
+                app:layout_constraintTop_toBottomOf="@+id/mentor_name" />
+
+            <TextView
+                android:id="@+id/course_detail_old_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/_80"
+                android:textSize="30sp"
+                android:textColor="@color/text_color2"
+                app:layout_constraintStart_toEndOf="@+id/course_detail_price"
+                app:layout_constraintTop_toTopOf="@+id/course_detail_price" />
+
+            <TextView
+                android:id="@+id/course_detail_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/_4_8"
+                android:textColor="@color/text_color2"
+                android:textSize="26sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/course_detail_price" />
+
+            <TextView
+                android:id="@+id/course_detail_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@string/_22_379_reviews"
+                android:textColor="@color/text_color2"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/course_detail_rating"
+                app:layout_constraintStart_toEndOf="@+id/course_detail_rating"
+                app:layout_constraintTop_toTopOf="@+id/course_detail_rating" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/course_detail_rating">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/students_ic" />
+
+                <TextView
+                    android:id="@+id/course_detail_students_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textSize="14sp"
+                    android:text="@string/students" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toStartOf="@+id/course_detail_gives_certificate"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat2"
+                app:layout_constraintTop_toBottomOf="@+id/course_detail_rating">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/clock_ic_filled" />
+
+                <TextView
+                    android:id="@+id/course_detail_hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textSize="14sp"
+                    android:text="@string/hours" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/course_detail_gives_certificate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat"
+                app:layout_constraintTop_toBottomOf="@+id/course_detail_rating">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/certificate_ic_filled" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textSize="14sp"
+                    android:text="@string/certificate" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/course_tab_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:animateLayoutChanges="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat"
+                app:tabIndicatorAnimationDuration="300"
+                app:tabIndicatorColor="#335ef7"
+                app:tabPadding="16dp"
+                app:tabRippleColor="#808080"
+                app:tabSelectedTextColor="#335ef7"
+                app:tabTextColor="#9e9e9e" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/course_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/course_tab_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
 lateinit var binding: FragmentMainBinding
+lateinit var email:String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,10 +22,9 @@ lateinit var binding: FragmentMainBinding
         // Inflate the layout for this fragment
 
 
+      email= arguments?.getString("email").toString()
 
 
-
-        val fragmentTransaction = childFragmentManager.beginTransaction()
 
 
 
@@ -31,6 +32,7 @@ lateinit var binding: FragmentMainBinding
         binding.bottomNav.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_home -> {
+                    bundleOf().putString("email",email)
                     childFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,MainFragment()).commit()
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -72,6 +74,15 @@ lateinit var binding: FragmentMainBinding
 
 
         return binding.root
+    }
+    companion object {
+        fun newInstance(data: String): MainFragment {
+            val fragment = MainFragment()
+            val args = Bundle()
+            args.putString("email", data)
+            fragment.arguments = args
+            return fragment
+        }
     }
 
 }

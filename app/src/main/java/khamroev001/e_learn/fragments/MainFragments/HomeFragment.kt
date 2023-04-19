@@ -1,14 +1,20 @@
 package khamroev001.e_learn.fragments.MainFragments
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import khamroev001.e_learn.CategoryRecyclerAdapter
+import khamroev001.e_learn.R
 import khamroev001.e_learn.adapter.*
 
 import khamroev001.e_learn.adapter.OfferAdapter
@@ -24,6 +30,7 @@ class HomeFragment : Fragment() {
    lateinit var offerlist:MutableList<Discount_offers>
    lateinit var mentorlist:MutableList<Mentor>
    lateinit var btn_courseslist:MutableList<Btn_Courses>
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,17 +38,16 @@ class HomeFragment : Fragment() {
         var api = API.newInstance(requireContext())
         var animHelper= AnimHelper.newInstance()
 
+        var email=arguments?.getString("email")
+
         binding= FragmentHomeBinding.inflate(inflater,container,false)
-        // Inflate the layout for this fragment
+
+        binding.titleName.text=email.toString()
 
     offerlist= mutableListOf(Discount_offers(40,"Today's special","Get discount for every course order",Color.BLUE),Discount_offers(30,"Today's special","Get discount for every course order",Color.RED),Discount_offers(40,"Today's special","Get discount for every course order",Color.LTGRAY),Discount_offers(70,"Today's special","Get discount for every course order",Color.MAGENTA),Discount_offers(20,"Today's special","Get discount for every course order",Color.parseColor("#466DFA")))
 
 
-//    mentorlist= mutableListOf(Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor),Mentor("Jordan \n Peterson", R.drawable.mentor))
-//    btn_courseslist= mutableListOf(Btn_Courses("All",true),
-//
-//        Btn_Courses("Business"), Btn_Courses("IT"), Btn_Courses("Philosophy"),
-//        Btn_Courses("Languages"))
+
         val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
        var adapter=OfferAdapter(requireContext(),offerlist)
         binding.rvOffer.adapter=adapter
@@ -50,16 +56,29 @@ class HomeFragment : Fragment() {
 
 
 
-        println(api.getMentors().joinToString())
-        println(api.getCourses().joinToString())
+          binding.seeAllCourse.setOnClickListener {
+              animHelper.animate(
+                  requireContext(),
+                  binding.seeAllCourse,
+                  R.anim.button_press_anim,
+                  object : AnimHelper.EndAction {
+                      override fun endAction() {
+                          findNavController().navigate(R.id.action_mainFragment_to_courses_seeallFragment)
+                      }
+                  })
+          }
 
-//       binding.rvMentors.adapter=MentorAdapter(requireContext(),mentorlist)
-//        binding.rvMentors.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
-
-//        binding.rvBtnCourses.adapter=Btn_CoursesAdapter(requireContext(),btn_courseslist)
-//        binding.rvBtnCourses.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
-
-
+        binding.mentorSeeall.setOnClickListener {
+            animHelper.animate(
+                requireContext(),
+                binding.mentorSeeall,
+                R.anim.button_press_anim,
+                object : AnimHelper.EndAction {
+                    override fun endAction() {
+                        findNavController().navigate(R.id.action_mainFragment_to_mentorSeeAllFragment)
+                    }
+                })
+        }
 
         binding.rvMentors.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -68,7 +87,7 @@ class HomeFragment : Fragment() {
                 override fun onPressed(mentor: Mentor) {
                     val bundle = Bundle()
                     bundle.putSerializable("param1", mentor)
-//                    findNavController().navigate(R.id.action_bodyFragment_to_mentorFragment, bundle)
+                    findNavController().navigate(R.id.action_mainFragment_to_mentorFragment, bundle)
                 }
             })
 
@@ -81,7 +100,7 @@ class HomeFragment : Fragment() {
                 override fun onPressed(course: Course) {
                     val bundle = Bundle()
                     bundle.putSerializable("param1", course)
-//                    findNavController().navigate(R.id.action_bodyFragment_to_courseDetailFragment, bundle)
+                    findNavController().navigate(R.id.action_mainFragment_to_courseDetailFragment, bundle)
                 }
 
             })
@@ -108,6 +127,28 @@ class HomeFragment : Fragment() {
                 }
             })
 
+        binding.bookmark.setOnClickListener {
+            animHelper.animate(
+                requireContext(),
+                binding.bookmark,
+                R.anim.button_press_anim,
+                object : AnimHelper.EndAction {
+                    override fun endAction() {
+                        findNavController().navigate(R.id.action_mainFragment_to_bookmarksFragment)
+                    }
+                })
+        }
+        binding.notification.setOnClickListener {
+            animHelper.animate(
+                requireContext(),
+                binding.notification,
+                R.anim.button_press_anim,
+                object : AnimHelper.EndAction {
+                    override fun endAction() {
+                        findNavController().navigate(R.id.action_mainFragment_to_notificationsFragment)
+                    }
+                })
+        }
 
         return binding.root
     }

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainFragments.MentorFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/mentor_back_arrow"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/mentor_more"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/more_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/mentor_image"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/mentor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_back_arrow" />
+
+    <TextView
+        android:id="@+id/mentor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/jonathan_williams"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_image" />
+
+    <TextView
+        android:id="@+id/mentor_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/jonathan_williams"
+        android:textColor="@color/text_color2"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_name" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat4"
+        app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat5">
+
+        <TextView
+            android:id="@+id/reviewsNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/_9_279"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviews"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/linearLayoutCompat5"
+        app:layout_constraintTop_toTopOf="@+id/linearLayoutCompat5">
+
+        <TextView
+            android:id="@+id/studentsNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/_22_379"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/s"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayoutCompat4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_job">
+
+        <TextView
+            android:id="@+id/courseNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/_25"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/courses"
+            app:layout_constraintEnd_toEndOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+
+        android:id="@+id/mentor_message_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/message_asd"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/inbox_ic"
+        app:iconSize="24dp"
+        app:layout_constraintEnd_toStartOf="@+id/mentor_website_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/mentor_website_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/message"
+        android:textColor="@color/primary"
+        app:backgroundTint="@color/white"
+        app:cornerRadius="16dp"
+        app:icon="@drawable/compass_ic_filled"
+        app:iconSize="24dp"
+        app:iconTint="@color/primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/mentor_message_button"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat5"
+        app:strokeColor="@color/primary"
+        app:strokeWidth="1.5dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/course_tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_message_button"
+        app:tabIndicatorAnimationDuration="300"
+        app:tabIndicatorColor="#335ef7"
+        app:tabPadding="16dp"
+        app:tabRippleColor="#808080"
+        app:tabSelectedTextColor="#335ef7"
+        app:tabTextColor="#9e9e9e" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/course_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_tab_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

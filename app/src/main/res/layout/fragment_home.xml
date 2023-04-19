@@ -6,195 +6,217 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MainFragments.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/profile_img_placeholder" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:fontFamily="@font/bold"
-                android:text="Hello 👋"
-                android:textSize="16dp" />
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/profile_img_placeholder" />
 
-            <TextView
-                android:id="@+id/title_name"
-                android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:fontFamily="@font/bold"
+                        android:text="Hello 👋"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/title_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:text="Sattor Khamroev"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/notification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/notification_ic" />
+
+                <ImageView
+                    android:id="@+id/bookmark"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="6dp"
+                    android:src="@drawable/bookmark_1" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/edittext_bg"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Search"
+                android:paddingStart="26dp"
+                android:textColor="#8e8e8e"
+                android:textColorHint="#8e8e8e"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_offer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bold"
-                android:text="Sattor Khamroev"
-                android:textSize="20dp" />
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search"
+                tools:listitem="@layout/item_offers" />
+
+
+            <LinearLayout
+                android:id="@+id/line_mentor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_offer">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/bold"
+                    android:text="Top mentors"
+                    android:textSize="20dp" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/mentor_seeall"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/bold"
+                    android:text="see all"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/blue"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_mentors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_mentor"
+                tools:listitem="@layout/item_mentor" />
+
+
+            <LinearLayout
+                android:id="@+id/line_course"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_mentors">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:fontFamily="@font/bold"
+                    android:text="Most popular courses"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/see_all_course"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/bold"
+                    android:text="see all"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/blue"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoryRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line_course"
+                tools:listitem="@layout/home_category_item" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/courses_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:listitem="@layout/home_course_item"
+                app:layout_constraintTop_toBottomOf="@+id/categoryRecyclerView" />
 
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/notification"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:src="@drawable/ic_notifications" />
+    </ScrollView>
 
-        <ImageView
-            android:id="@+id/bookmark"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="6dp"
-            android:src="@drawable/ic_bookmark" />
-
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/search"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/edittext_bg"
-        android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Search"
-        android:paddingStart="26dp"
-        android:textColor="#8e8e8e"
-        android:textColorHint="#8e8e8e"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_offer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search"
-        tools:listitem="@layout/item_offers" />
-
-
-    <LinearLayout
-        android:id="@+id/line_mentor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_offer">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/bold"
-            android:text="Top mentors"
-            android:textSize="20dp" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/bold"
-            android:text="see all"
-            android:textAlignment="textEnd"
-            android:textColor="@color/blue"
-            android:textSize="16dp" />
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_mentors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_mentor"
-        tools:listitem="@layout/item_mentor" />
-
-
-    <LinearLayout
-        android:id="@+id/line_course"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_mentors">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:fontFamily="@font/bold"
-            android:text="Most popular courses"
-            android:textSize="18dp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:fontFamily="@font/bold"
-            android:text="see all"
-            android:textAlignment="textEnd"
-            android:textColor="@color/blue"
-            android:textSize="16dp" />
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_course"
-        tools:listitem="@layout/item_mentor" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/courses_recycler_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/categoryRecyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

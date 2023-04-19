@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MainFragments.NotificationsFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/notifications_back_arrow"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/notifications"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/notifications_back_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/bookmarks_more"
+        app:layout_constraintStart_toEndOf="@+id/notifications_back_arrow"
+        app:layout_constraintTop_toTopOf="@+id/notifications_back_arrow" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/bookmarks_more"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/more_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:src="@drawable/nothing_yet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        tools:ignore="ContentDescription" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,8 +26,9 @@ class CreateAccFragment : Fragment() {
         var binding:FragmentCreateAccBinding= FragmentCreateAccBinding.inflate(inflater,container,false)
 
 
+
         var usersList = mutableListOf<User>()
-        var sh= activity?.getSharedPreferences("user", Context.MODE_PRIVATE)!!
+        var sh= activity?.getSharedPreferences("data", Context.MODE_PRIVATE)!!
         var type = object : TypeToken<List<User>>() {}.type
         var gson = Gson()
         var edit = sh.edit()

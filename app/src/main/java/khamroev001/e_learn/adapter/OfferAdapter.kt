@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import khamroev001.e_learn.R
 import khamroev001.e_learn.model.Discount_offers
+import khamroev001.e_learn.utils.AnimHelper
 
 class OfferAdapter(var context: Context, private val itemList: MutableList<Discount_offers>) : RecyclerView.Adapter<OfferAdapter.ViewHolder>() {
 
@@ -31,11 +32,22 @@ class OfferAdapter(var context: Context, private val itemList: MutableList<Disco
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemList[position]
 
+        var animHelper=AnimHelper.newInstance()
 
         holder.description.text=item.describtion
         holder.discount.text="${item.discount}%"
         holder.discount_off.text="${item.discount}% off"
         holder.title.text=item.title
         holder.card.setCardBackgroundColor(item.color)
+
+
+        holder.itemView.setOnClickListener {
+            animHelper.animate(
+                context,
+                holder.itemView,
+                R.anim.button_press_anim
+            )
+                }
+        }
     }
-}
+

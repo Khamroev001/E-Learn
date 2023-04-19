@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -38,7 +39,7 @@ class PinFragment : Fragment(),View.OnClickListener {
         // Inflate the layout for this fragment
 
 
-         sh= activity?.getSharedPreferences("user", Context.MODE_PRIVATE)!!
+         sh= activity?.getSharedPreferences("data", Context.MODE_PRIVATE)!!
         var type = object : TypeToken<List<User>>() {}.type
         gson = Gson()
         edit = sh.edit()
@@ -116,7 +117,8 @@ class PinFragment : Fragment(),View.OnClickListener {
                         usersList.remove(i)
                         var s = gson.toJson(usersList)
                         edit.putString("user", s).apply()
-                        findNavController().navigate(R.id.action_pinFragment_to_mainFragment)
+
+                        findNavController().navigate(R.id.action_pinFragment_to_mainFragment, bundleOf("email" to email))
                     }else{
                         if (pin.toInt()==i.pin){
                             binding.plot1.setBackgroundResource(R.drawable.cube_green)
@@ -126,7 +128,7 @@ class PinFragment : Fragment(),View.OnClickListener {
                             Handler(Looper.getMainLooper()).postDelayed({
                                 pin = ""
                                 clickcount = 0
-                               findNavController().navigate(R.id.action_pinFragment_to_mainFragment)
+                               findNavController().navigate(R.id.action_pinFragment_to_mainFragment, bundleOf("email" to email))
                             }, 500)
                     } else{
                             pin = ""

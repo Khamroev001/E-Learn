@@ -93,5 +93,61 @@
         android:id="@+id/mainFragment"
         android:name="khamroev001.e_learn.fragments.MainFragments.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_mentorFragment"
+            app:destination="@id/mentorFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bookmarksFragment"
+            app:destination="@id/bookmarksFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_courses_seeallFragment"
+            app:destination="@id/courseSeeAll" />
+        <action
+            android:id="@+id/action_mainFragment_to_mentorSeeAllFragment"
+            app:destination="@id/mentorSeeAllFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mentorFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.MentorFragment"
+        android:label="MentorFragment" />
+    <fragment
+        android:id="@+id/courseDetailFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.CourseDetailFragment"
+        android:label="fragment_course_d_etail"
+        tools:layout="@layout/fragment_course_d_etail" />
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.BookmarksFragment"
+        android:label="fragment_bookmarks"
+        tools:layout="@layout/fragment_bookmarks" />
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/courseSeeAll"
+        android:name="khamroev001.e_learn.fragments.MainFragments.CourseSeeAll"
+        android:label="fragment_course_see_all"
+        tools:layout="@layout/fragment_course_see_all" >
+        <action
+            android:id="@+id/action_courseSeeAll_to_courseDetailFragment"
+            app:destination="@id/courseDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mentorSeeAllFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.MentorSeeAllFragment"
+        android:label="fragment_mentor_see_all"
+        tools:layout="@layout/fragment_mentor_see_all" >
+        <action
+            android:id="@+id/action_mentorSeeAllFragment_to_mentorFragment"
+            app:destination="@id/mentorFragment" />
+    </fragment>
 </navigation>

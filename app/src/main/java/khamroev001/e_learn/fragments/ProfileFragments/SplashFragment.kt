@@ -27,7 +27,7 @@ class SplashFragment : Fragment() {
     ): View? {
         var binding=FragmentSplashBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
-        sh= activity?.getSharedPreferences("user", MODE_PRIVATE)!!
+        sh= activity?.getSharedPreferences("data", MODE_PRIVATE)!!
         var gson = Gson()
         var edit = sh.edit()
 

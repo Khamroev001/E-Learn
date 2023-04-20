@@ -53,6 +53,21 @@ class API private constructor(context: Context) {
         return gson.fromJson(data, typeToken)
     }
 
+
+    fun getCourses(name: String): ArrayList<Course> {
+        val data: String = shared.getString(coursesString, "")!!
+        val typeToken = object : TypeToken<ArrayList<Course>>() {}.type
+        if (data == "") return ArrayList()
+        val a:ArrayList<Course> =  gson.fromJson(data, typeToken)
+        val new = arrayListOf<Course>()
+        for (i in a){
+            if (i.name.toLowerCase().contains(name.toLowerCase())){
+                new.add(i)
+            }
+        }
+        return new
+    }
+
     fun getCourses(category: Category): ArrayList<Course> {
         val data: String = shared.getString(coursesString, "")!!
         val typeToken = object : TypeToken<ArrayList<Course>>() {}.type

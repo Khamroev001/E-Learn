@@ -3,6 +3,7 @@ package khamroev001.e_learn.fragments.MainFragments
 import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -109,7 +110,9 @@ class CourseDetailFragment : Fragment() {
             CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)))
         val tabLayout = binding.courseTabLayout
 
-        TabLayoutMediator(tabLayout, viewPager){tab, position->
+          println(arrayListOf(
+              CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)))
+          TabLayoutMediator(tabLayout, viewPager){tab, position->
             when (position){
                 0->{
                     tab.text = "About"

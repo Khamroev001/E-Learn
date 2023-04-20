@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -80,6 +82,11 @@ class HomeFragment : Fragment() {
                 })
         }
 
+//        binding.search.doOnTextChanged { text, start, before, count ->
+//                var items_filtered_s=items.filter { it.name.toUpperCase().contains(text.toString().toUpperCase()) }
+//                var adapter_filtered=MainAdapter(this,items_filtered_s as MutableList<Item>)
+//                binding.rv.adapter=adapter_filtered
+//            }
         binding.rvMentors.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvMentors.adapter =
@@ -127,6 +134,25 @@ class HomeFragment : Fragment() {
                 }
             })
 
+        binding.search.doOnTextChanged { text, start, before, count ->
+            binding.rvOffer.visibility=View.GONE
+            binding.lineMentor.visibility=View.GONE
+            binding.lineCourse.visibility=View.GONE
+            binding.rvMentors.visibility=View.GONE
+            binding.categoryRecyclerView.visibility=View.GONE
+            var new = api.getCourses()
+            if (text == null || text=="") {
+                binding.rvOffer.visibility=View.VISIBLE
+                binding.categoryRecyclerView.visibility=View.VISIBLE
+                binding.lineMentor.visibility=View.VISIBLE
+                binding.lineCourse.visibility=View.VISIBLE
+                binding.rvMentors.visibility=View.VISIBLE
+            } else {
+                new = api.getCourses(text.toString())
+            }
+             courseAdapter.courses=new
+            courseAdapter.notifyDataSetChanged()
+        }
         binding.bookmark.setOnClickListener {
             animHelper.animate(
                 requireContext(),

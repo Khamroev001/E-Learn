@@ -1,5 +1,6 @@
 package khamroev001.e_learn.fragments.MainFragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ class MainFragment : Fragment() {
 
 lateinit var binding: FragmentMainBinding
 lateinit var email:String
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

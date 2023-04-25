@@ -54,6 +54,7 @@ class LoginFragment : Fragment() {
                         Toast.makeText(activity, "Password or email is incorrect", Toast.LENGTH_SHORT).show()
                     }
 
+
                 }
             }
 

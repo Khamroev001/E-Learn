@@ -112,6 +112,13 @@
         <action
             android:id="@+id/action_mainFragment_to_mentorSeeAllFragment"
             app:destination="@id/mentorSeeAllFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/mentorFragment"
@@ -140,6 +147,12 @@
         <action
             android:id="@+id/action_courseSeeAll_to_courseDetailFragment"
             app:destination="@id/courseDetailFragment" />
+        <action
+            android:id="@+id/action_courseSeeAll_self"
+            app:destination="@id/courseSeeAll" />
+        <action
+            android:id="@+id/action_courseSeeAll_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/mentorSeeAllFragment"
@@ -149,5 +162,12 @@
         <action
             android:id="@+id/action_mentorSeeAllFragment_to_mentorFragment"
             app:destination="@id/mentorFragment" />
+        <action
+            android:id="@+id/action_mentorSeeAllFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="khamroev001.e_learn.fragments.MainFragments.EditProfileFragment"
+        android:label="EditProfileFragment" />
 </navigation>

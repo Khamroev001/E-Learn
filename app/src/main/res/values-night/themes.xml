@@ -2,4 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.ELearn" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">35dp</item>
+    </style>
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_animation</item>
+        <item name="android:windowExitAnimation">@anim/dialog_animation</item>
+    </style>
 </resources>

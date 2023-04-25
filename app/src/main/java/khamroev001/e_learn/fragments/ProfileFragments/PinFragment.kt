@@ -18,6 +18,7 @@ import com.google.gson.reflect.TypeToken
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentPinBinding
 import khamroev001.e_learn.model.User
+import khamroev001.e_learn.utils.API
 
 
 class PinFragment : Fragment(),View.OnClickListener {
@@ -30,7 +31,7 @@ class PinFragment : Fragment(),View.OnClickListener {
     lateinit var gson: Gson
     lateinit var str:String
     lateinit var usersList: MutableList<User>
-
+     lateinit var api: API
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,14 +39,15 @@ class PinFragment : Fragment(),View.OnClickListener {
          binding=FragmentPinBinding.inflate(inflater,container,false)
         // Inflate the layout for this fragment
 
-
+        api=API.newInstance(requireContext())
          sh= activity?.getSharedPreferences("data", Context.MODE_PRIVATE)!!
         var type = object : TypeToken<List<User>>() {}.type
         gson = Gson()
         edit = sh.edit()
         str = sh.getString("user", "").toString()
-        usersList = gson.fromJson<MutableList<User>>(str,type)
+        usersList = api.getRegisteredUsersList()!!
         email= arguments?.getString("email").toString()
+
 
         binding.dot1.setOnClickListener(this)
         binding.dot2.setOnClickListener(this)
@@ -109,14 +111,21 @@ class PinFragment : Fragment(),View.OnClickListener {
 
         }
         if (clickcount >= 4) {
+            println("AAAAAAAAAAAAAAAAAAAAAAAAaaaa")
+            println(usersList.joinToString())
+            println(email)
             for (i in usersList){
+                println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbb")
                 if (i.email==email){
                     println(i.pin)
                     if (i.pin==0){
-                        usersList.add(User(i.email,i.password,i.name,i.username,i.birthdate,i.phonenumber,i.gender,pin.toInt()))
+                        var new_user=User(i.email,i.password,i.name,i.username,i.birthdate,i.phonenumber,i.gender,pin.toInt())
+                        usersList.add(new_user)
                         usersList.remove(i)
                         var s = gson.toJson(usersList)
                         edit.putString("user", s).apply()
+
+                        api.setRegUser(new_user)
 
                         findNavController().navigate(R.id.action_pinFragment_to_mainFragment, bundleOf("email" to email))
                     }else{

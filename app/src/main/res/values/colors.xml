@@ -10,4 +10,5 @@
     <color name="text_color2">#616161</color>
     <color name="primary">#335ef7</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
 </resources>

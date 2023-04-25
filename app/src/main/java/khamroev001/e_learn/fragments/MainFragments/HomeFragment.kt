@@ -40,15 +40,19 @@ class HomeFragment : Fragment() {
         var api = API.newInstance(requireContext())
         var animHelper= AnimHelper.newInstance()
 
-        var email=arguments?.getString("email")
 
         binding= FragmentHomeBinding.inflate(inflater,container,false)
+        binding.search.text=null
 
-        binding.titleName.text=email.toString()
+        binding.titleName.text=api.getRegUser().name
 
     offerlist= mutableListOf(Discount_offers(40,"Today's special","Get discount for every course order",Color.BLUE),Discount_offers(30,"Today's special","Get discount for every course order",Color.RED),Discount_offers(40,"Today's special","Get discount for every course order",Color.LTGRAY),Discount_offers(70,"Today's special","Get discount for every course order",Color.MAGENTA),Discount_offers(20,"Today's special","Get discount for every course order",Color.parseColor("#466DFA")))
 
-
+        binding.rvOffer.visibility=View.VISIBLE
+        binding.categoryRecyclerView.visibility=View.VISIBLE
+        binding.lineMentor.visibility=View.VISIBLE
+        binding.lineCourse.visibility=View.VISIBLE
+        binding.rvMentors.visibility=View.VISIBLE
 
         val layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
        var adapter=OfferAdapter(requireContext(),offerlist)
@@ -81,12 +85,6 @@ class HomeFragment : Fragment() {
                     }
                 })
         }
-
-//        binding.search.doOnTextChanged { text, start, before, count ->
-//                var items_filtered_s=items.filter { it.name.toUpperCase().contains(text.toString().toUpperCase()) }
-//                var adapter_filtered=MainAdapter(this,items_filtered_s as MutableList<Item>)
-//                binding.rv.adapter=adapter_filtered
-//            }
         binding.rvMentors.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvMentors.adapter =
@@ -98,12 +96,9 @@ class HomeFragment : Fragment() {
                 }
             })
 
-      println(api.getMentors().joinToString())
-      println(api.getCourses().joinToString())
         binding.coursesRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val courseAdapter =
-            CourseRecyclerAdapter(api.getCourses(), api, animHelper, requireContext(), object : CourseRecyclerAdapter.OnClick{
+        val courseAdapter =  CourseRecyclerAdapter(api.getCourses(), api, animHelper, requireContext(), object : CourseRecyclerAdapter.OnClick{
                 override fun onPressed(course: Course) {
                     val bundle = Bundle()
                     bundle.putSerializable("param1", course)
@@ -135,20 +130,22 @@ class HomeFragment : Fragment() {
             })
 
         binding.search.doOnTextChanged { text, start, before, count ->
-            binding.rvOffer.visibility=View.GONE
-            binding.lineMentor.visibility=View.GONE
-            binding.lineCourse.visibility=View.GONE
-            binding.rvMentors.visibility=View.GONE
-            binding.categoryRecyclerView.visibility=View.GONE
+            println(count)
             var new = api.getCourses()
-            if (text == null || text=="") {
+            if (count==0) {
                 binding.rvOffer.visibility=View.VISIBLE
                 binding.categoryRecyclerView.visibility=View.VISIBLE
                 binding.lineMentor.visibility=View.VISIBLE
                 binding.lineCourse.visibility=View.VISIBLE
                 binding.rvMentors.visibility=View.VISIBLE
             } else {
-                new = api.getCourses(text.toString())
+                println(count)
+                    binding.rvOffer.visibility=View.GONE
+                    binding.categoryRecyclerView.visibility=View.GONE
+                    binding.lineMentor.visibility=View.GONE
+                    binding.lineCourse.visibility=View.GONE
+                    binding.rvMentors.visibility=View.GONE
+                    new = api.getCourses(text.toString())
             }
              courseAdapter.courses=new
             courseAdapter.notifyDataSetChanged()

@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import khamroev001.e_learn.R
 import khamroev001.e_learn.adapter.CourseRecyclerAdapter
+import khamroev001.e_learn.adapter.MentorSeeAllRecyclerAdapter
 import khamroev001.e_learn.adapter.MentorsRecyclerAdapter
 import khamroev001.e_learn.databinding.FragmentCourseSeeAllBinding
 import khamroev001.e_learn.databinding.FragmentMentorSeeAllBinding
@@ -49,7 +50,7 @@ class MentorSeeAllFragment : Fragment() {
         var api:API=API.newInstance(requireContext())
         var animHelper=AnimHelper.newInstance()
 
-        binding.mentorSeeallRv.adapter=MentorsRecyclerAdapter(api.getMentors(),animHelper,requireContext(), object : MentorsRecyclerAdapter.OnPressed{
+        binding.mentorSeeallRv.adapter=MentorSeeAllRecyclerAdapter(api.getMentors(),animHelper,requireContext(), object : MentorSeeAllRecyclerAdapter.OnPressed{
             override fun onPressed(mentor: Mentor) {
                 val bundle = Bundle()
                 bundle.putSerializable("param1", mentor)

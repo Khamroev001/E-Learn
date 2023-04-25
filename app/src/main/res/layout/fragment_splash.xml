@@ -12,7 +12,7 @@
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:scaleType="fitXY"
-        android:src="@drawable/e"
+        android:src="@drawable/logo"
         app:layout_constraintBottom_toTopOf="@id/loading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

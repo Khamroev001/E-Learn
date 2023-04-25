@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentLoginBinding
 import khamroev001.e_learn.model.User
+import khamroev001.e_learn.utils.API
 
 
 class LoginFragment : Fragment() {
@@ -25,7 +26,7 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var binding=FragmentLoginBinding.inflate(inflater,container,false)
-
+        var api=API.newInstance(requireContext())
 
 
         var usersList= mutableListOf<User>()
@@ -38,20 +39,19 @@ class LoginFragment : Fragment() {
         binding.login.setOnClickListener {
 
             var str = sh.getString("user", "")
-            usersList = if (str == "") {
-                mutableListOf<User>()
-            } else {
-                gson.fromJson(str, type)
-            }
+            usersList = api.getRegisteredUsersList()!!
 
+              println(usersList.joinToString())
+            println(api.getRegUser())
             for (i in usersList) {
                 if (binding.emailUp.text.toString() == i.email) {
                     if (i.password == binding.passwordUp.text.toString()) {
+                        api.setRegUser(i)
                       findNavController().navigate(R.id.action_loginFragment_to_pinFragment,
                           bundleOf("email" to i.email)
                       )
                     }else {
-                        Toast.makeText(activity, "Password or email is incorrect", Toast.LENGTH_LONG).show()
+                        Toast.makeText(activity, "Password or email is incorrect", Toast.LENGTH_SHORT).show()
                     }
                 }
             }

@@ -15,6 +15,10 @@ class API private constructor(context: Context) {
     private val coursesString = "courses"
     private val reviewsString = "reviews"
     private val bookmarkString = "bookmarks"
+    private val registeredUserString="regUser"
+    private val registeredUsersString="user"
+
+
 
 
     companion object {
@@ -28,7 +32,15 @@ class API private constructor(context: Context) {
             return instance!!
         }
     }
-
+    fun getRegisteredUsersList(): MutableList<khamroev001.e_learn.model.User>? {
+        var type = object : TypeToken<List<khamroev001.e_learn.model.User>>() {}.type
+        var str = shared.getString("user", "")
+        var usersList = gson.fromJson<MutableList<khamroev001.e_learn.model.User>>(str,type)
+        return usersList
+    }
+    fun setRegisteredUsersList(users:MutableList<khamroev001.e_learn.model.User>){
+        edit.putString(registeredUsersString,gson.toJson(users)).commit()
+    }
     fun getMentors(): ArrayList<Mentor> {
         println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
         val data: String = shared.getString(mentorsString, "")!!
@@ -37,9 +49,28 @@ class API private constructor(context: Context) {
         println(data)
         return gson.fromJson<ArrayList<Mentor>?>(data, typeToken)
     }
+     fun setDialog(str:String){
+         edit.putString("yesno",str).commit()
+     }
+    fun getDialog():Boolean{
+        if (shared.getString("yesno","")=="yes"){
+            return true
+        }
+        return false
+    }
+
+    fun setRegUser(user:khamroev001.e_learn.model.User){
+        val typeToken = object : TypeToken<khamroev001.e_learn.model.User>() {}.type
+        var data=gson.toJson(user)
+        edit.putString(registeredUserString,data).commit()
+    }
+    fun getRegUser():khamroev001.e_learn.model.User{
+        var data=shared.getString(registeredUserString,"")
+        val typeToken = object : TypeToken<khamroev001.e_learn.model.User>() {}.type
+        return gson.fromJson(data, typeToken)
+    }
 
     fun getUsers(): ArrayList<User> {
-
         val data: String = shared.getString(usersString, "")!!
         val typeToken = object : TypeToken<ArrayList<User>>() {}.type
         if (data == "") return ArrayList()

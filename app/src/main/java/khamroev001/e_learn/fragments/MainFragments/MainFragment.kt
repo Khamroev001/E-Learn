@@ -15,6 +15,7 @@ class MainFragment : Fragment() {
 
 lateinit var binding: FragmentMainBinding
 lateinit var email:String
+    private var cameFromBack = false
     @SuppressLint("SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,8 +26,6 @@ lateinit var email:String
 
 
       email= arguments?.getString("email").toString()
-
-
 
 
 
@@ -75,8 +74,23 @@ lateinit var email:String
 
 
 
+
         return binding.root
     }
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+
+        if (!hidden) {
+            if (cameFromBack) {
+                childFragmentManager.beginTransaction().replace(R.id.fragmentContainerView,MainFragment()).commit()
+            }
+
+            cameFromBack = true
+        } else {
+            cameFromBack = false
+        }
+    }
+
     companion object {
         fun newInstance(data: String): MainFragment {
             val fragment = MainFragment()

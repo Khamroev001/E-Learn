@@ -85,6 +85,7 @@
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="10dp"
                 android:ems="10"
+                android:maxLines="1"
                 android:hint="Search"
                 android:paddingStart="26dp"
                 android:textColor="#8e8e8e"

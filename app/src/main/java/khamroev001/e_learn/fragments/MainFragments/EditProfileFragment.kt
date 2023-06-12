@@ -24,7 +24,7 @@ import java.util.*
 class EditProfileFragment : Fragment() {
 lateinit var binding:FragmentEditProfileBinding
 lateinit var api:API
-lateinit var user:User
+lateinit var user: User
 lateinit var selectedGender:String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +37,7 @@ lateinit var selectedGender:String
         api=API.newInstance(requireContext())
 
 
-        user=api.getRegUser()
+        user=api.getRegUser()!!
 
 
         binding.birthdate.setHint(user.birthdate)
@@ -45,7 +45,9 @@ lateinit var selectedGender:String
         binding.birthdate.setOnClickListener {
             showDatePickerDialog()
         }
-
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.fullName.hint=user.name
         binding.username.hint=user.username
 

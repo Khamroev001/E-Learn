@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
         binding= FragmentHomeBinding.inflate(inflater,container,false)
         binding.search.text=null
 
-        binding.titleName.text=api.getRegUser().name
+        binding.titleName.text=api.getRegUser()!!.name
 
     offerlist= mutableListOf(Discount_offers(40,"Today's special","Get discount for every course order",Color.BLUE),Discount_offers(30,"Today's special","Get discount for every course order",Color.RED),Discount_offers(40,"Today's special","Get discount for every course order",Color.LTGRAY),Discount_offers(70,"Today's special","Get discount for every course order",Color.MAGENTA),Discount_offers(20,"Today's special","Get discount for every course order",Color.parseColor("#466DFA")))
 
@@ -132,7 +132,7 @@ class HomeFragment : Fragment() {
         binding.search.doOnTextChanged { text, start, before, count ->
             println(count)
             var new = api.getCourses()
-            if (count==0) {
+            if (binding.search.text.isEmpty()) {
                 binding.rvOffer.visibility=View.VISIBLE
                 binding.categoryRecyclerView.visibility=View.VISIBLE
                 binding.lineMentor.visibility=View.VISIBLE

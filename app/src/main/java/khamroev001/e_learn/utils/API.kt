@@ -59,14 +59,14 @@ class API private constructor(context: Context) {
         return false
     }
 
-    fun setRegUser(user:khamroev001.e_learn.model.User){
-        val typeToken = object : TypeToken<khamroev001.e_learn.model.User>() {}.type
+    fun setRegUser(user: khamroev001.e_learn.model.User?){
+        val typeToken = object : TypeToken<khamroev001.e_learn.model.User?>() {}.type
         var data=gson.toJson(user)
         edit.putString(registeredUserString,data).commit()
     }
-    fun getRegUser():khamroev001.e_learn.model.User{
+    fun getRegUser():khamroev001.e_learn.model.User?{
         var data=shared.getString(registeredUserString,"")
-        val typeToken = object : TypeToken<khamroev001.e_learn.model.User>() {}.type
+        val typeToken = object : TypeToken<khamroev001.e_learn.model.User?>() {}.type
         return gson.fromJson(data, typeToken)
     }
 

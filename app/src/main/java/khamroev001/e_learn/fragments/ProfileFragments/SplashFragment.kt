@@ -15,6 +15,7 @@ import com.google.gson.Gson
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentSplashBinding
 import khamroev001.e_learn.model.User
+import khamroev001.e_learn.utils.API
 
 
 class SplashFragment : Fragment() {
@@ -31,13 +32,14 @@ class SplashFragment : Fragment() {
         var gson = Gson()
         var edit = sh.edit()
 
+ var api=API.newInstance(requireContext())
 
 
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (sh.getString("user","")==""){
-                findNavController().navigate(R.id.action_splashFragment_to_firstImgFragment)
+            if (api.getRegUser()!=null){
+                findNavController().navigate(R.id.action_splashFragment_to_mainFragment)
             }else{
                 findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
             }

@@ -8,13 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 import khamroev001.e_learn.R
-import khamroev001.e_learn.databinding.FragmentProfileBinding
 import khamroev001.e_learn.databinding.FragmentProfileViewBinding
 import khamroev001.e_learn.model.User
 import khamroev001.e_learn.utils.API
-import khamroev001.e_learn.utils.BottomDialogLogout
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +27,7 @@ class ProfileViewFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+   lateinit var api: API
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,10 +42,10 @@ class ProfileViewFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var binding=FragmentProfileViewBinding.inflate(inflater,container,false)
-        var api= API.newInstance(requireContext())
+         api= API.newInstance(requireContext())
 
 
-       var user:User=api.getRegUser()
+       var user=api.getRegUser()!!
 
         binding.viewName.text=user.name
         binding.viewEmail.text=user.email
@@ -82,6 +79,7 @@ class ProfileViewFragment : Fragment() {
         }
 
         logoutButton.setOnClickListener {
+            api.setRegUser(null)
             findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
             dialog.dismiss()
         }

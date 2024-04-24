@@ -31,7 +31,7 @@ class CourseDetailFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "SuspiciousIndentation")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -106,12 +106,15 @@ class CourseDetailFragment : Fragment() {
         }
 
         val viewPager = binding.courseViewPager
+
+        Log.d("TAG",param1.toString())
+
         viewPager.adapter = MyViewPagerAdapter(parentFragmentManager, lifecycle, arrayListOf(
             CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)))
         val tabLayout = binding.courseTabLayout
 
-          println(arrayListOf(
-              CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)))
+          Log.d("TAG",arrayListOf(
+              CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)).toString())
           TabLayoutMediator(tabLayout, viewPager){tab, position->
             when (position){
                 0->{

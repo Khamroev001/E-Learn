@@ -10,11 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.transition.Hold
 import com.google.gson.Gson
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentSplashBinding
-import khamroev001.e_learn.model.User
 import khamroev001.e_learn.utils.API
 
 

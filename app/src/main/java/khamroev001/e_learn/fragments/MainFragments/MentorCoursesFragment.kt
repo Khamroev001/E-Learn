@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import khamroev001.e_learn.R
 import khamroev001.e_learn.adapter.CourseRecyclerAdapter
 import khamroev001.e_learn.databinding.FragmentMentorCoursesBinding
 import khamroev001.e_learn.utils.API

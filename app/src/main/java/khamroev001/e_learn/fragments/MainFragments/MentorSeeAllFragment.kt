@@ -8,14 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import khamroev001.e_learn.R
-import khamroev001.e_learn.adapter.CourseRecyclerAdapter
 import khamroev001.e_learn.adapter.MentorSeeAllRecyclerAdapter
-import khamroev001.e_learn.adapter.MentorsRecyclerAdapter
-import khamroev001.e_learn.databinding.FragmentCourseSeeAllBinding
 import khamroev001.e_learn.databinding.FragmentMentorSeeAllBinding
 import khamroev001.e_learn.utils.API
 import khamroev001.e_learn.utils.AnimHelper
-import khamroev001.e_learn.utils.Course
 import khamroev001.e_learn.utils.Mentor
 
 // TODO: Rename parameter arguments, choose names that match

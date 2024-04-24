@@ -1,4 +1,5 @@
 package khamroev001.e_learn.fragments.MainFragments
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
@@ -27,13 +28,14 @@ class CourseAboutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        Log.d("TAG", param1.toString())
         val binding = FragmentCourseAboutBinding.inflate(inflater, container, false)
         binding.courseDetailAboutCourse.text = param1!!.about
         binding.courseDetailEnrollButtton.text = "Enroll course - ${param1!!.prices.last()}$"
         binding.mentorImage.load(param1!!.mentor.img)
         binding.courseDetailMentorJob.text = param1!!.mentor.job
         binding.courseDetailMentorName.text = param1!!.mentor.firstName + " " + param1!!.mentor.firstName
-        Log.d("TAG", "onCreateView: ")
+        Log.d("TAG", "onCreateView:  About")
         return binding.root
     }
 

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import coil.transform.CircleCropTransformation
 import khamroev001.e_learn.R
-import khamroev001.e_learn.databinding.HomeMentorItemBinding
 import khamroev001.e_learn.databinding.ItemMentorSeeallBinding
 import khamroev001.e_learn.utils.AnimHelper
 import khamroev001.e_learn.utils.Mentor

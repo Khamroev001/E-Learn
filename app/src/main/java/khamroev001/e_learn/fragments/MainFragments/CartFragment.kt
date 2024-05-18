@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import khamroev001.e_learn.R
+import khamroev001.e_learn.databinding.FragmentCartBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +35,27 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var binding=FragmentCartBinding.inflate(layoutInflater,container,false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        return binding.root
     }
 
     companion object {

@@ -10,6 +10,7 @@ import coil.api.load
 import com.google.android.material.tabs.TabLayoutMediator
 import khamroev001.e_learn.R
 import khamroev001.e_learn.adapter.MyViewPagerAdapter
+import khamroev001.e_learn.adapter.ViewPagerAdapter
 import khamroev001.e_learn.databinding.FragmentMentorBinding
 import khamroev001.e_learn.utils.API
 import khamroev001.e_learn.utils.AnimHelper
@@ -30,7 +31,11 @@ class MentorFragment : Fragment() {
         val binding = FragmentMentorBinding.inflate(layoutInflater, container, false)
 
         val viewPager = binding.courseViewPager
-        viewPager.adapter = MyViewPagerAdapter(childFragmentManager, lifecycle, arrayListOf(MentorCoursesFragment.newInstance(mentor!!), MentorStudentsFragment.newInstance(mentor!!), MentorReviewsFragment.newInstance(mentor!!)))
+        viewPager.adapter = ViewPagerAdapter(
+            childFragmentManager,
+            lifecycle,
+            arrayListOf(MentorCoursesFragment.newInstance(mentor!!), MentorStudentsFragment.newInstance(mentor!!), MentorReviewsFragment.newInstance(mentor!!))
+        )
 
         val tabLayout = binding.courseTabLayout
 

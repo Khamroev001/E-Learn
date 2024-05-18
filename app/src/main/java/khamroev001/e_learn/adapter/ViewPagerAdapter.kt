@@ -12,21 +12,16 @@ import khamroev001.e_learn.utils.Course
 
 
 
-class MyViewPagerAdapter(
+class ViewPagerAdapter(
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle,
-    var course: Course,
-    api: API
+     var fragmentsList: List<Fragment>
 ):FragmentStateAdapter(fragmentManager, lifecycle) {
-
-    val fragmentsList= arrayListOf(CourseAboutFragment.newInstance(course,api),CourseReviewsFragment.newInstance(course))
-
-
-    override fun getItemCount(): Int {
+        override fun getItemCount(): Int {
         return fragmentsList.size
     }
 
     override fun createFragment(position: Int): Fragment {
-         return fragmentsList[position]
+        return fragmentsList[position]
     }
 }

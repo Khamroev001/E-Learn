@@ -109,13 +109,10 @@ class CourseDetailFragment : Fragment() {
 
         Log.d("TAG",param1.toString())
 
-        viewPager.adapter = MyViewPagerAdapter(parentFragmentManager, lifecycle, arrayListOf(
-            CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)))
+        viewPager.adapter = MyViewPagerAdapter(parentFragmentManager, lifecycle,param1!!,api)
         val tabLayout = binding.courseTabLayout
 
-          Log.d("TAG",arrayListOf(
-              CourseAboutFragment.newInstance(param1!!), CourseReviewsFragment.newInstance(param1!!)).toString())
-          TabLayoutMediator(tabLayout, viewPager){tab, position->
+        TabLayoutMediator(tabLayout, viewPager){tab, position->
             when (position){
                 0->{
                     tab.text = "About"

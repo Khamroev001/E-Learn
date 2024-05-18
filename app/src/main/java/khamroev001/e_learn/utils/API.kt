@@ -15,6 +15,7 @@ class API private constructor(context: Context) {
     private val coursesString = "courses"
     private val reviewsString = "reviews"
     private val bookmarkString = "bookmarks"
+    private val cartString = "cart"
     private val registeredUserString="regUser"
     private val registeredUsersString="user"
 
@@ -208,6 +209,32 @@ class API private constructor(context: Context) {
             Log.d("TAG1", "add bookmark: ")
             bookmarks.add(course)
             edit.putString(bookmarkString, gson.toJson(bookmarks)).apply()
+            true
+        }
+    }
+
+
+    fun getCart(): ArrayList<Course> {
+        val data: String = shared.getString(cartString, "")!!
+        if (data == "") {
+            return ArrayList()
+        }
+        val typeToken = object : TypeToken<ArrayList<Course>>() {}.type
+        return gson.fromJson(data, typeToken)
+    }
+
+    fun updateCart(course: Course): Boolean {
+        Log.d("TAG1", "1: ")
+        val bookmarks = getBookmarks()
+        Log.d("TAG1", bookmarks.toString())
+        return if (bookmarks.contains(course)) {
+            bookmarks.remove(course)
+            edit.putString(cartString, gson.toJson(bookmarks)).apply()
+            false
+        } else {
+            Log.d("TAG1", "add bookmark: ")
+            bookmarks.add(course)
+            edit.putString(cartString, gson.toJson(bookmarks)).apply()
             true
         }
     }

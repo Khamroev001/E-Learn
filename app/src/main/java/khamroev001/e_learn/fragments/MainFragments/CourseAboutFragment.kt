@@ -9,11 +9,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import coil.api.load
 import khamroev001.e_learn.databinding.FragmentCourseAboutBinding
+import khamroev001.e_learn.utils.API
 import khamroev001.e_learn.utils.Course
 
 
 private const val ARG_PARAM1 = "param1"
-class CourseAboutFragment : Fragment() {
+class CourseAboutFragment(var api: API) : Fragment() {
     private var param1: Course? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +34,11 @@ class CourseAboutFragment : Fragment() {
         binding.courseDetailAboutCourse.text = param1!!.about
         binding.courseDetailEnrollButtton.text = "Enroll course - ${param1!!.prices.last()}$"
         binding.mentorImage.load(param1!!.mentor.img)
+
+        binding.courseDetailEnrollButtton.setOnClickListener{
+            api.updateCart(param1!!)
+        }
+
         binding.courseDetailMentorJob.text = param1!!.mentor.job
         binding.courseDetailMentorName.text = param1!!.mentor.firstName + " " + param1!!.mentor.firstName
         Log.d("TAG", "onCreateView:  About")
@@ -41,8 +47,8 @@ class CourseAboutFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: Course) =
-            CourseAboutFragment().apply {
+        fun newInstance(param1: Course,api: API) =
+            CourseAboutFragment(api).apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAM1, param1)
                 }

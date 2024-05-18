@@ -5,7 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import khamroev001.e_learn.R
+import khamroev001.e_learn.adapter.CourseRecyclerAdapter
+import khamroev001.e_learn.databinding.FragmentCourseSeeAllBinding
+import khamroev001.e_learn.utils.API
+import khamroev001.e_learn.utils.AnimHelper
+import khamroev001.e_learn.utils.Course
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -34,8 +41,29 @@ class MyCoursesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_courses, container, false)
+        var binding= FragmentCourseSeeAllBinding.inflate(inflater,container,false)
+
+        var api: API = API.newInstance(requireContext())
+        var animHelper= AnimHelper.newInstance()
+
+        binding.coursesSeeallRv.adapter=
+            CourseRecyclerAdapter(api.getCart(),api,animHelper,requireContext(), object : CourseRecyclerAdapter.OnClick{
+            override fun onPressed(course: Course) {
+                val bundle = Bundle()
+                bundle.putSerializable("param1", course)
+                findNavController().navigate(R.id.action_courseSeeAll_to_courseDetailFragment, bundle)
+            }
+
+        })
+        binding.coursesSeeallRv.layoutManager=
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+
+
+
+
+        return binding.root
+
+
     }
 
     companion object {

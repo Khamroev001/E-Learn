@@ -1,10 +1,7 @@
 package khamroev001.e_learn.fragments.MainFragments
 
 import android.annotation.SuppressLint
-import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Color
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,8 +10,6 @@ import android.view.ViewGroup
 import androidx.core.widget.doOnTextChanged
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import khamroev001.e_learn.CategoryRecyclerAdapter
 import khamroev001.e_learn.R
 import khamroev001.e_learn.adapter.*

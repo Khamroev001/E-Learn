@@ -2,15 +2,12 @@ package khamroev001.e_learn.utils
 
 import android.app.Dialog
 import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
-import androidx.fragment.app.FragmentActivity
-import androidx.navigation.fragment.NavHostFragment
 import khamroev001.e_learn.R
 
 class BottomDialogLogout(context: Context) : Dialog(context) {

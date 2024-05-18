@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import khamroev001.e_learn.R
 import khamroev001.e_learn.databinding.FragmentProfileViewBinding
-import khamroev001.e_learn.model.User
 import khamroev001.e_learn.utils.API
 
 // TODO: Rename parameter arguments, choose names that match

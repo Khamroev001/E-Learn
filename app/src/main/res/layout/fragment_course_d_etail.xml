@@ -6,15 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MainFragments.CourseDetailFragment">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/course_detail_image"
@@ -225,10 +221,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/course_tab_layout" />
+                app:layout_constraintTop_toBottomOf="@+id/course_tab_layout"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
